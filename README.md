@@ -20,3 +20,6 @@ php bin/console doctrine:database:create
 php bin/console d:s:u --f
 ```
 4 - Enjoy.
+
+Hint: If you want you can use this docker locally:
+https://github.com/simonberton/dockerphp7.2apachemysql
