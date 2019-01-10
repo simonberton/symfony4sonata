@@ -28,6 +28,17 @@ php bin/console oauth-server:client:create 'http://www.yourlocalurl.local'
 Then check it on your browser with the returned client_id and secret like so:
 http://www.yourlocalurl.local:8086/oauth/v2/token?client_id=1_5hdp7ouc5d0kk4ckg8sk4o4wwoo4k8csowo8wc0go4wwgscccs&client_secret=36con31ekbok0o0804ogs04kw80o8gcc480wosos48004o8844&grant_type=client_credentials
 
+This project comes with a Product entity and API as an example.
+
+Take a look at the App\Controller\Rest to see the ProductController.
+
+To extend functionality, create your entity. Make your NewEntityController extend the BaseRestController, and copy the logic from the ProductController into your controler. 
+
+You will also need to make a Repository for that new entity. Follow same logic like you did with the Controller, but this time with the Repository.
+
+Finally, you will have to make a Form for your object to validate the CRUD functions. Example also on the App\Form.
+
+
 4 - Enjoy.
 
 Hint: If you want you can use this docker locally:
