@@ -18,6 +18,7 @@ class CreateClientCommand extends Command
         $this->clientManager = $clientManager;
         parent::__construct();
     }
+    
     protected function configure()
     {
         $this
