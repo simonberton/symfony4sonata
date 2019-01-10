@@ -15,11 +15,3 @@ fos_oauth_server_token:
 
 fos_oauth_server_authorize:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
-
-oauth_server_auth_login:
-    path:  /oauth/v2/auth_login
-    controller: App\Controller\Security:Security:login 
-
-oauth_server_auth_login_check:
-    path:  /oauth/v2/auth_login_check
-    controller: App\Controller\Security:Security:loginCheck 

@@ -12,6 +12,20 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            form_login:
+                provider: user_provider
+                check_path: _security_check
+                login_path: _demo_login
+            anonymous:  true
+            security:   false
+
         admin:
             pattern:            /admin(.*)
             context:            user
@@ -25,11 +39,13 @@ security:
                 path:           /admin/logout
                 target:         /admin/login
             anonymous:          true
+
         api:
             pattern:    ^/api
             fos_oauth:  true
             stateless:  true
             anonymous:  false # can be omitted as its default value
+
         main:
             pattern:             .*
             context:             user
@@ -41,18 +57,7 @@ security:
                 failure_path:   null
             logout:             true
             anonymous:          true
-        oauth_token:
-            pattern:    ^/oauth/v2/token
-            security:   false
 
-        oauth_authorize:
-            pattern:    ^/oauth/v2/auth
-            form_login:
-                provider: user_provider
-                check_path: _security_check
-                login_path: _demo_login
-            anonymous:  true
-            security:   false
             # Add your favorite authentication process here
 
 
