@@ -116,7 +116,7 @@ class BaseRestController extends FOSRestController
             $this->objectRepository->save($object);
             $response = new Response();
             $response->setContent(json_encode(array(
-                'status' => Response::HTTP_CREATED,
+                'status' => Response::HTTP_OK,
                 'message' => sprintf('%s Updated Successfuly', $this->class),
                 'data' => null
             )));
