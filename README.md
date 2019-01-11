@@ -32,12 +32,17 @@ This project comes with a Product entity and API as an example.
 
 Take a look at the App\Controller\Rest to see the ProductController.
 
-To extend functionality, create your entity. Make your NewEntityController extend the BaseRestController, and copy the logic from the ProductController into your controler. 
+To extend functionality, create your entity. 
 
-You will also need to make a Repository for that new entity. Follow same logic like you did with the Controller, but this time with the Repository.
+Make your NewEntityController extend the App\Controller\Rest\BaseRestController, and copy the logic from the ProductController into your controler. 
+
+You will also need to make a Repository for that new entity. 
+Extend the App\Repository\ObjectRepository. 
+Follow same logic like you did with the Controller, but this time with the Repository.
 
 Finally, you will have to make a Form for your object to validate the CRUD functions. Example also on the App\Form.
 
+You can find the Doc under the /admin/doc
 
 4 - Enjoy.
 
