@@ -59,6 +59,14 @@ class ProductController extends BaseRestController
      *      required=true,
      *      type="string"
      * )
+     * @SWG\Parameter(
+     *      name="data",
+     *      in="body",
+     *      required=true,
+     *      @SWG\Schema(
+     *          @SWG\Property(property="product_form[name]", type="string", description="The name of the Product")
+     *      )
+     * )
      * @SWG\Response(
      *      response="200",
      *      description="Product created successfuly",

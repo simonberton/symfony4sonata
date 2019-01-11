@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Repository\ObjectRepository;
 use FOS\RestBundle\View\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception;
 use App\Form\ProductFormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Serializer\Serializer;
@@ -63,7 +62,8 @@ class BaseRestController extends FOSRestController
             
             return $response;
         }
-        throw new Exception('The content could not be saved');
+
+        //throw new \Exception('The content could not be saved');
     }
 
     protected function getObject(int $objectId): Response
@@ -82,7 +82,7 @@ class BaseRestController extends FOSRestController
             
             return $response;
         }
-        throw new Exception(sprintf('No %s with given id', $this->class));
+        throw new \Exception(sprintf('No %s with given id', $this->class));
     }
 
     protected function getObjects(): Response
@@ -102,7 +102,7 @@ class BaseRestController extends FOSRestController
             
             return $response;
         }
-        throw new Exception('No Products present in database');
+        throw new \Exception('No Products present in database');
     }
 
     protected function putObject(int $objectId, Request $request): Response
@@ -124,14 +124,14 @@ class BaseRestController extends FOSRestController
             
             return $response;
         }
-        throw new Exception('The content could not be saved');
+        throw new \Exception('The content could not be saved');
     }
 
     public function deleteObject(int $objectId): Response
     {
         $object = $this->objectRepository->findOneById($objectId);
 
-        if (null !== $product) {
+        if (null !== $object) {
             try {
                 $this->objectRepository->delete($object);
 
@@ -143,11 +143,11 @@ class BaseRestController extends FOSRestController
                 $response->headers->set('Content-Type', 'application/json');
 
                 return $response;
-            } catch (Exception $e) {
-                throw new Exception('Error deleting object');
+            } catch (\Exception $e) {
+                throw new \Exception('Error deleting object');
             }
         }
         // In case our DELETE was a success we need to return a 204 HTTP NO CONTENT response. The object is deleted.
-        throw new Exception('No content could not be deleted');
+        throw new \Exception('No content could not be deleted');
     }
 }
