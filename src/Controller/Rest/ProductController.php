@@ -31,6 +31,12 @@ class ProductController extends BaseRestController
      * Retrieves a Product
      * @Rest\Get("/products/{productId}")
      * @SWG\Tag(name="Product CRUD")
+     * @SWG\Parameter(
+     *      name="access_token",
+     *      in="query",
+     *      required=true,
+     *      type="string"
+     * )
      * @SWG\Response(
      *      response="200",
      *      description="Product retrieved successfuly",
@@ -47,6 +53,12 @@ class ProductController extends BaseRestController
      * @param Request $request
      * @return Response
      * @SWG\Tag(name="Product CRUD")
+     * @SWG\Parameter(
+     *      name="access_token",
+     *      in="query",
+     *      required=true,
+     *      type="string"
+     * )
      * @SWG\Response(
      *      response="200",
      *      description="Product created successfuly",
@@ -60,8 +72,13 @@ class ProductController extends BaseRestController
     /**
      * Retrieves a list of Products
      * @Rest\Get("/products")
-     * SecurityApiDoc(name='Oauth2')
      * @SWG\Tag(name="Product CRUD")
+     * @SWG\Parameter(
+     *      name="access_token",
+     *      in="query",
+     *      required=true,
+     *      type="string"
+     * )
      * @SWG\Response(
      *      response="200",
      *      description="Get Products list",
@@ -76,6 +93,12 @@ class ProductController extends BaseRestController
      * Updates an existing Product
      * @Rest\Post("/products/{objectId}")
      * @SWG\Tag(name="Product CRUD")
+     * @SWG\Parameter(
+     *      name="access_token",
+     *      in="query",
+     *      required=true,
+     *      type="string"
+     * )
      * @SWG\Response(
      *      response="200",
      *      description="Product updated successfuly",
@@ -90,6 +113,12 @@ class ProductController extends BaseRestController
      * Deletes an existing Product
      * @Rest\Delete("/products/{objectId}")
      * @SWG\Tag(name="Product CRUD")
+     * @SWG\Parameter(
+     *      name="access_token",
+     *      in="query",
+     *      required=true,
+     *      type="string"
+     * )
      * @SWG\Response(
      *      response="200",
      *      description="Product deleted successfuly",
