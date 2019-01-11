@@ -63,7 +63,7 @@ class BaseRestController extends FOSRestController
             return $response;
         }
 
-        //throw new \Exception('The content could not be saved');
+        throw new \Exception('The content could not be saved');
     }
 
     protected function getObject(int $objectId): Response
