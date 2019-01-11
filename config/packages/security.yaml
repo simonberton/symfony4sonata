@@ -40,9 +40,9 @@ security:
                 target:         /admin/login
             anonymous:          true
 
-        apidoc:
-            pattern:    /api/doc
-            anonymous:  true 
+        # apidoc:
+        #     pattern:    /admin/doc
+        #     anonymous:  true 
 
         api:
             pattern:    ^/api
@@ -77,6 +77,5 @@ security:
             # form_login: true
             # https://symfony.com/doc/current/security/form_login_setup.html
     access_control:
-        - { path: ^/api/doc, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/doc, roles: ROLE_ADMIN }
         - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
-    #   - { path: ^/admin/, roles: ROLE_ADMIN }

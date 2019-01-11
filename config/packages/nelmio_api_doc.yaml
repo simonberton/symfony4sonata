@@ -4,6 +4,19 @@ nelmio_api_doc:
             title: Symfony 4
             description: This is an awesome app!
             version: 1.0.0
+        securityDefinitions:
+            Bearer:
+                type: apiKey
+                description: 'Value: Bearer {jwt}'
+                name: Authorization
+                in: header
+            Oauth2:
+                type: apiKey
+                name: access_token
+                in: query
+        security:
+            - Bearer: []
+            - Oauth2: []
     areas: # to filter documented areas
         path_patterns:
             - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

@@ -11,6 +11,8 @@ use App\Repository\ProductRepository;
 use FOS\RestBundle\View\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Controller\Rest\BaseRestController;
+use Swagger\Annotations as SWG;
+use Nelmio\ApiDocBundle\Annotation\Security as SecurityApiDoc;
 
 class ProductController extends BaseRestController
 {
@@ -26,8 +28,13 @@ class ProductController extends BaseRestController
     }
 
     /**
-     * Retrieves a Product resource
+     * Retrieves a Product
      * @Rest\Get("/products/{productId}")
+     * @SWG\Tag(name="Product CRUD")
+     * @SWG\Response(
+     *      response="200",
+     *      description="Product retrieved successfuly",
+     * )
      */
     public function getObject(int $productId): Response
     {
@@ -35,10 +42,15 @@ class ProductController extends BaseRestController
     }
 
     /**
-     * Creates a Product resource
+     * Creates a Product
      * @Rest\Post("/products")
      * @param Request $request
      * @return Response
+     * @SWG\Tag(name="Product CRUD")
+     * @SWG\Response(
+     *      response="200",
+     *      description="Product created successfuly",
+     * )
      */
     public function postObject(Request $request): Response
     {
@@ -46,8 +58,14 @@ class ProductController extends BaseRestController
     }
 
     /**
-     * Retrieves a Product resource
+     * Retrieves a list of Products
      * @Rest\Get("/products")
+     * SecurityApiDoc(name='Oauth2')
+     * @SWG\Tag(name="Product CRUD")
+     * @SWG\Response(
+     *      response="200",
+     *      description="Get Products list",
+     * )
      */
     public function getObjects(): Response
     {
@@ -55,8 +73,13 @@ class ProductController extends BaseRestController
     }
 
     /**
-     * Updates a Product resource
+     * Updates an existing Product
      * @Rest\Post("/products/{objectId}")
+     * @SWG\Tag(name="Product CRUD")
+     * @SWG\Response(
+     *      response="200",
+     *      description="Product updated successfuly",
+     * )
      */
     public function putObject(int $objectId, Request $request): Response
     {
@@ -64,8 +87,13 @@ class ProductController extends BaseRestController
     }
 
     /**
-     * Updates a Product resource
+     * Deletes an existing Product
      * @Rest\Delete("/products/{objectId}")
+     * @SWG\Tag(name="Product CRUD")
+     * @SWG\Response(
+     *      response="200",
+     *      description="Product deleted successfuly",
+     * )
      */
     public function deleteObject(int $objectId): Response
     {
