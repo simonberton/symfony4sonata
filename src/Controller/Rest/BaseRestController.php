@@ -69,7 +69,7 @@ class BaseRestController extends FOSRestController
     protected function getObject(int $objectId): Response
     {
         $object = $this->objectRepository->findOneById($objectId);
-        
+
         if (null !== $object) {
             $jsonContent = $this->serializer->serialize($object, 'json');
             $response = new Response();
