@@ -48,3 +48,6 @@ You can find the Doc under the /admin/doc
 
 Hint: If you want you can use this docker locally:
 https://github.com/simonberton/dockerphp7.2apachemysql
+
+This project now uses the VichUploader bundle on the Product entity.
+https://github.com/dustin10/VichUploaderBundle/blob/master/Resources/doc/usage.md
